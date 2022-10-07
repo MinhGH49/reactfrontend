@@ -7,7 +7,7 @@ import './App.css';
 
 function DisplayTable() {
     const [data, getData] = useState([])
-    const URL = 'https://jsonplaceholder.typicode.com/posts';
+    const URL = 'https://minh-restfulapi.herokuapp.com/drugs/view/all';
 
     useEffect(() => {
         fetchData()
