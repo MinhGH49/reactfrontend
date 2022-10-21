@@ -31,17 +31,19 @@ function DisplayTable() {
             <h1>TEST table data</h1>
             <tbody>
                 <tr>
-                    <th>User Id</th>
+                    <th>Name</th>
                     <th>Id</th>
-                    <th>Title</th>
-                    <th>Description</th>
+                    <th>prescribe</th>
+                    <th>contraindication</th>
+                    <th>manufacturer</th>
                 </tr>
                 {data.map((item, i) => (
                     <tr key={i}>
                         <td>{item.name}</td>
                         <td>{item.id}</td>
-                        <td>{item.title}</td>
-                        <td>{item.body}</td>
+                        <td>{item.prescribe}</td>
+                        <td>{item.contraindication}</td>
+                        <td>{item.manufacturer}</td>
                     </tr>
                 ))}
             </tbody>
