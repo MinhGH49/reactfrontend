@@ -1,5 +1,6 @@
 import "./App.css";
 import React, {useState } from "react";
+import axios from 'axios'
 
 function InsertData() {
   const [name, setName] = useState("");
@@ -12,17 +13,25 @@ function InsertData() {
   let handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      let res = await fetch("https://minh-restfulapi.herokuapp.com/drugs/insert", {
-        method: "POST",
-        mode: "no-cors",
-        body: JSON.stringify({
-          id: id,
-          name: name,
-          prescribe: prescribe,
-          contraindication: contraindication,
-          manufacturer: manufacturer,
-        }),
-      });
+      let newDrug = {
+        id: id,
+        name: name,
+        prescribe: prescribe,
+        contraindication: contraindication,
+        manufacturer: manufacturer,
+      }
+      // let res = await fetch("https://minh-restfulapi.herokuapp.com/drugs/insert", {
+      //   method: "POST",
+      //   mode: "no-cors",
+      //   body: JSON.stringify({
+      //     id: id,
+      //     name: name,
+      //     prescribe: prescribe,
+      //     contraindication: contraindication,
+      //     manufacturer: manufacturer,
+      //   }),
+      // });
+      let res = await axios.post('https://minh-restfulapi.herokuapp.com/drugs/insert', newDrug)
       let resJson = await res.json();
       if (res.status === 200) {
         setName("");
